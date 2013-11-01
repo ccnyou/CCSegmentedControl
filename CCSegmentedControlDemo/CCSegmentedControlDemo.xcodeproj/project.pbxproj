@@ -21,6 +21,9 @@
 		B202512F182429DE0058D92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2025111182429DE0058D92B /* UIKit.framework */; };
 		B2025137182429DE0058D92B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2025135182429DE0058D92B /* InfoPlist.strings */; };
 		B2025139182429DE0058D92B /* CCSegmentedControlDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2025138182429DE0058D92B /* CCSegmentedControlDemoTests.m */; };
+		B202514518242A3B0058D92B /* CCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B202514418242A3B0058D92B /* CCSegmentedControl.m */; };
+		B202514918242BB00058D92B /* segment_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B202514718242BB00058D92B /* segment_bg.png */; };
+		B202514A18242BB00058D92B /* stain.png in Resources */ = {isa = PBXBuildFile; fileRef = B202514818242BB00058D92B /* stain.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		B2025134182429DE0058D92B /* CCSegmentedControlDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCSegmentedControlDemoTests-Info.plist"; sourceTree = "<group>"; };
 		B2025136182429DE0058D92B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B2025138182429DE0058D92B /* CCSegmentedControlDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSegmentedControlDemoTests.m; sourceTree = "<group>"; };
+		B202514318242A3B0058D92B /* CCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSegmentedControl.h; sourceTree = "<group>"; };
+		B202514418242A3B0058D92B /* CCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentedControl.m; sourceTree = "<group>"; };
+		B202514718242BB00058D92B /* segment_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = segment_bg.png; sourceTree = "<group>"; };
+		B202514818242BB00058D92B /* stain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stain.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +119,8 @@
 		B2025113182429DE0058D92B /* CCSegmentedControlDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B202514618242BB00058D92B /* Images */,
+				B202514218242A3B0058D92B /* CCSegmentedControl */,
 				B202511C182429DE0058D92B /* AppDelegate.h */,
 				B202511D182429DE0058D92B /* AppDelegate.m */,
 				B202511F182429DE0058D92B /* Main.storyboard */,
@@ -151,6 +160,25 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		B202514218242A3B0058D92B /* CCSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				B202514318242A3B0058D92B /* CCSegmentedControl.h */,
+				B202514418242A3B0058D92B /* CCSegmentedControl.m */,
+			);
+			name = CCSegmentedControl;
+			path = ../../CCSegmentedControl;
+			sourceTree = "<group>";
+		};
+		B202514618242BB00058D92B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B202514718242BB00058D92B /* segment_bg.png */,
+				B202514818242BB00058D92B /* stain.png */,
+			);
+			path = Images;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -228,9 +256,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B202514918242BB00058D92B /* segment_bg.png in Resources */,
 				B2025126182429DE0058D92B /* Images.xcassets in Resources */,
 				B2025118182429DE0058D92B /* InfoPlist.strings in Resources */,
 				B2025121182429DE0058D92B /* Main.storyboard in Resources */,
+				B202514A18242BB00058D92B /* stain.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +281,7 @@
 			files = (
 				B2025124182429DE0058D92B /* ViewController.m in Sources */,
 				B202511E182429DE0058D92B /* AppDelegate.m in Sources */,
+				B202514518242A3B0058D92B /* CCSegmentedControl.m in Sources */,
 				B202511A182429DE0058D92B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -367,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -460,6 +491,7 @@
 				B202513E182429DE0058D92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B202513F182429DE0058D92B /* Build configuration list for PBXNativeTarget "CCSegmentedControlDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +500,7 @@
 				B2025141182429DE0058D92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
