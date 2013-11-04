@@ -44,7 +44,6 @@
 		B2025115182429DE0058D92B /* CCSegmentedControlDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCSegmentedControlDemo-Info.plist"; sourceTree = "<group>"; };
 		B2025117182429DE0058D92B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B2025119182429DE0058D92B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B202511B182429DE0058D92B /* CCSegmentedControlDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCSegmentedControlDemo-Prefix.pch"; sourceTree = "<group>"; };
 		B202511C182429DE0058D92B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B202511D182429DE0058D92B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B2025120182429DE0058D92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		B202514418242A3B0058D92B /* CCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCSegmentedControl.m; sourceTree = "<group>"; };
 		B202514718242BB00058D92B /* segment_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = segment_bg.png; sourceTree = "<group>"; };
 		B202514818242BB00058D92B /* stain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stain.png; sourceTree = "<group>"; };
+		B2584B8B182762CE00DC3EE4 /* CCSegmentedControlDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCSegmentedControlDemo-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +135,10 @@
 		B2025114182429DE0058D92B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B2584B8B182762CE00DC3EE4 /* CCSegmentedControlDemo-Prefix.pch */,
 				B2025115182429DE0058D92B /* CCSegmentedControlDemo-Info.plist */,
 				B2025116182429DE0058D92B /* InfoPlist.strings */,
 				B2025119182429DE0058D92B /* main.m */,
-				B202511B182429DE0058D92B /* CCSegmentedControlDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
