@@ -25,4 +25,7 @@
 - (void)removeAllSegments;
 - (void)removeSegmentAtIndex:(NSUInteger)segment animated:(BOOL)animated;
 
+- (void)appendSegmentWithTitle:(NSString *)title animated:(BOOL)animated;
+- (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segmentIndex animated:(BOOL)animated;
+
 @end

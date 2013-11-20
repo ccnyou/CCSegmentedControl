@@ -51,6 +51,11 @@
     return self;
 }
 
+- (void)appendSegmentWithTitle:(NSString *)title animated:(BOOL)animated
+{
+    [self insertSegmentWithTitle:title atIndex:[self numberOfSegments] animated:animated];
+}
+
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segmentIndex animated:(BOOL)animated
 {
     UILabel *segmentView = [[UILabel alloc] init];
