@@ -56,6 +56,7 @@
     [self insertSegmentWithTitle:title atIndex:[self numberOfSegments] animated:animated];
 }
 
+
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segmentIndex animated:(BOOL)animated
 {
     UILabel *segmentView = [[UILabel alloc] init];
@@ -188,6 +189,7 @@
     [self.items makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self.items removeAllObjects];
     [self setNeedsLayout];
+    _selectedSegmentIndex = -1;
 }
 
 - (void)setTitle:(NSString *)title forSegmentAtIndex:(NSUInteger)segment
