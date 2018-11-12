@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface CCSegmentedControl : UIControl<NSCoding>
-@property (strong, nonatomic) UIView *selectedStainView;        //阴影效果
-@property (strong, nonatomic) UIColor *segmentTextColor;
-@property (strong, nonatomic) UIColor *selectedSegmentTextColor;
-@property (strong, nonatomic) UIImage *backgroundImage;
-@property (assign, nonatomic) NSInteger selectedSegmentIndex;
-
+@property (nonatomic, strong) UIView *selectedStainView;        //阴影效果
+@property (nonatomic, strong) UIColor *segmentTextColor;
+@property (nonatomic, strong) UIColor *selectedSegmentTextColor;
+@property (nonatomic, strong) UIImage *backgroundImage;
+@property (nonatomic, assign) NSInteger selectedSegmentIndex;
+@property (nonatomic, assign) NSInteger numberOfLines;
 
 - (id)initWithItems:(NSArray *)items;
 

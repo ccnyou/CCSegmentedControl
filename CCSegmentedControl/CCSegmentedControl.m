@@ -25,15 +25,17 @@
 }
 
 - (id)init {
-    if ((self = [super init])) {
+    self = [super init];
+    if (self) {
         [self commonInit];
     }
     return self;
 }
 
-
 - (id)initWithItems:(NSArray *)items {
-    if ((self = [self init])) {
+    self = [super init];
+    if (self) {
+        [self commonInit];
         [items enumerateObjectsUsingBlock:^(id title, NSUInteger idx, BOOL *stop) {
             [self insertSegmentWithTitle:title atIndex:idx animated:NO];
         }];
@@ -42,7 +44,9 @@
 }
 
 - (void)appendSegmentWithTitle:(NSString *)title animated:(BOOL)animated {
-    [self insertSegmentWithTitle:title atIndex:[self numberOfSegments] animated:animated];
+    [self insertSegmentWithTitle:title
+                         atIndex:[self numberOfSegments]
+                        animated:animated];
 }
 
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segmentIndex animated:(BOOL)animated {
@@ -64,47 +68,89 @@
         [self insertSubview:segmentView belowSubview:self.items[index]];
         [self.items insertObject:segmentView atIndex:index];
     } else {
-        //新增到最后的 item
+        // 新增到最后的 item
         segmentView.center = self.center;
         [self addSubview:segmentView];
         [self.items addObject:segmentView];
     }
 
-    //重新调整选中 item 的下标
+    // 重新调整选中 item 的下标
     if (self.selectedSegmentIndex >= index) {
-        self.selectedSegmentIndex++;
+        if (self.selectedSegmentIndex < self.items.count - 1) {
+            self.selectedSegmentIndex++;
+        }
     }
 
     if (animated) {
-        [UIView animateWithDuration:0.4 animations:^{
+        [UIView animateWithDuration:0.4f animations:^{
             [self layoutSubviews];
         }];
     } else {
-        //这里其实也是调用 layoutSubviews 方法，时点不同
+        // 这里其实也是调用 layoutSubviews 方法，时点不同
         [self setNeedsLayout];
     }
 }
 
-//在这里设定子视图的大小和位置
-- (void)layoutSubviews {
+- (NSInteger)calcMaxItemWidth {
     CGFloat totalItemWidth = 0;
-    for (UIView *item in self.items) {
-        float itemWidth = CGRectGetWidth(item.bounds);
-        totalItemWidth += itemWidth;
+    if (self.numberOfLines > 1) {
+        // 多行，算出每一行，取最长的
+        NSInteger numberOfLineItems = [self numberOfLineItems];
+        for (NSInteger i = 0; i < self.numberOfLines; i++) {
+            CGFloat lineItemWidth = 0;
+            for (NSInteger j = 0; j < numberOfLineItems; j++) {
+                NSInteger index = i * numberOfLineItems + j;
+                UIView *item = [self.items objectAtIndex:index];
+                CGFloat itemWidth = CGRectGetWidth(item.bounds);
+                lineItemWidth += itemWidth;
+            }
+            
+            // 取最宽的一行
+            if (totalItemWidth < lineItemWidth) {
+                totalItemWidth = lineItemWidth;
+            }
+        }
+    } else {
+        // 单行，直接算所有的宽度
+        for (UIView *item in self.items) {
+            CGFloat itemWidth = CGRectGetWidth(item.bounds);
+            totalItemWidth += itemWidth;
+        }
     }
+    
+    return totalItemWidth;
+}
 
-    CGFloat spaceLeft = CGRectGetWidth(self.bounds) - totalItemWidth;
-    CGFloat interItemSpace = spaceLeft / (CGFloat)(self.items.count + 1);
-    CGFloat itemsVAlignCenter = CGRectGetHeight(self.bounds) / 2;   //垂直中心
+- (NSInteger)numberOfLineItems {
+    CGFloat itemCount = [self numberOfSegments];
+    NSInteger numberOfLineItems = (NSInteger)ceil(itemCount / self.numberOfLines);
+    return numberOfLineItems;
+}
 
+// 在这里设定子视图的大小和位置
+- (void)layoutSubviews {
+    NSInteger numberOfLineItems = [self numberOfLineItems];                 // 每行放几个
+    CGFloat totalItemWidth = [self calcMaxItemWidth];                       // 内容的实际宽度
+    CGFloat spaceLeft = CGRectGetWidth(self.bounds) - totalItemWidth;       // 减掉实际的空间后剩余可支配空间
+    CGFloat interItemSpace = spaceLeft / (CGFloat)(numberOfLineItems + 1);  // item之间的间隔距离
+    CGFloat lineHeight = CGRectGetHeight(self.frame) / self.numberOfLines;
+    
     __block CGFloat pos = interItemSpace;
     [self.items enumerateObjectsUsingBlock:^(UIView *item, NSUInteger idx, BOOL *stop) {
+        NSInteger line = idx / numberOfLineItems;
+        CGFloat verticalCenter = lineHeight * line + lineHeight / 2;
         item.alpha = 1;
+        
+        // 每行开始
+        if (idx == line * numberOfLineItems) {
+            pos = interItemSpace;
+        }
+        
         if (self.selectedSegmentIndex == idx) {
             [item sizeToFit];
-            item.center = CGPointMake(pos + CGRectGetWidth(item.bounds) / 2, itemsVAlignCenter);
+            item.center = CGPointMake(pos + CGRectGetWidth(item.bounds) / 2, verticalCenter);
         } else {
-            item.frame = CGRectMake(pos, 0, CGRectGetWidth(item.bounds), itemsVAlignCenter * 2);
+            item.frame = CGRectMake(pos, line * lineHeight, CGRectGetWidth(item.bounds), lineHeight);
         }
         pos += CGRectGetWidth(item.bounds) + interItemSpace;
     }];
@@ -114,11 +160,12 @@
         [self drawSelectedMaskAtPosition:-1];
     } else {
         UIView *selectedItem = self.items[self.selectedSegmentIndex];
-        CGRect stainFrame = CGRectInset(selectedItem.frame, -4, -8);
+        CGRect stainFrame = CGRectInset(selectedItem.frame, -10, -8);
         self.selectedStainView.layer.cornerRadius = stainFrame.size.height / 2;
         BOOL animated = !self.selectedStainView.hidden && !CGRectEqualToRect(self.selectedStainView.frame, CGRectZero);
         UIView.animationsEnabled = animated;
-        [UIView animateWithDuration:animated ? 0.2 : 0 animations:^{
+        [UIView animateWithDuration:animated ? 0.2f : 0
+                         animations:^{
                     self.selectedStainView.frame = stainFrame;
                 }
                          completion:^(BOOL finished) {
@@ -229,7 +276,8 @@
 
 - (void)commonInit {
     _items = [[NSMutableArray alloc] init];
-    _selectedSegmentIndex = -1;
+    _selectedSegmentIndex = 0;
+    _numberOfLines = 1;
     _segmentTextColor = [UIColor colorWithRed:0.451 green:0.451 blue:0.451 alpha:1];
     _selectedSegmentTextColor = [UIColor colorWithRed:0.169 green:0.169 blue:0.169 alpha:1];
 
@@ -266,11 +314,9 @@
     }
 }
 
-
 - (NSUInteger)numberOfSegments {
     return self.items.count;
 }
-
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
     if (_selectedSegmentIndex != selectedSegmentIndex) {
@@ -294,7 +340,8 @@
 @implementation DefaultStainView
 
 - (id)init {
-    if ((self = [super init])) {
+    self = [super init];
+    if (self) {
         self.clipsToBounds = YES;
     }
     return self;
