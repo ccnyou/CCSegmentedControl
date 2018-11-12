@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B202510A182429DE0058D92B /* CCSegmentedControlDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCSegmentedControlDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B202510A182429DE0058D92B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202510D182429DE0058D92B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B202510F182429DE0058D92B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B2025111182429DE0058D92B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -50,7 +50,7 @@
 		B2025122182429DE0058D92B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B2025123182429DE0058D92B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B2025125182429DE0058D92B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B202512B182429DE0058D92B /* CCSegmentedControlDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCSegmentedControlDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B202512B182429DE0058D92B /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202512C182429DE0058D92B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B2025134182429DE0058D92B /* CCSegmentedControlDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CCSegmentedControlDemoTests-Info.plist"; sourceTree = "<group>"; };
 		B2025136182429DE0058D92B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 		B202510B182429DE0058D92B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B202510A182429DE0058D92B /* CCSegmentedControlDemo.app */,
-				B202512B182429DE0058D92B /* CCSegmentedControlDemoTests.xctest */,
+				B202510A182429DE0058D92B /* Demo.app */,
+				B202512B182429DE0058D92B /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B2025109182429DE0058D92B /* CCSegmentedControlDemo */ = {
+		B2025109182429DE0058D92B /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B202513C182429DE0058D92B /* Build configuration list for PBXNativeTarget "CCSegmentedControlDemo" */;
+			buildConfigurationList = B202513C182429DE0058D92B /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				B2025106182429DE0058D92B /* Sources */,
 				B2025107182429DE0058D92B /* Frameworks */,
@@ -195,14 +195,14 @@
 			);
 			dependencies = (
 			);
-			name = CCSegmentedControlDemo;
+			name = Demo;
 			productName = CCSegmentedControlDemo;
-			productReference = B202510A182429DE0058D92B /* CCSegmentedControlDemo.app */;
+			productReference = B202510A182429DE0058D92B /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B202512A182429DE0058D92B /* CCSegmentedControlDemoTests */ = {
+		B202512A182429DE0058D92B /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B202513F182429DE0058D92B /* Build configuration list for PBXNativeTarget "CCSegmentedControlDemoTests" */;
+			buildConfigurationList = B202513F182429DE0058D92B /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				B2025127182429DE0058D92B /* Sources */,
 				B2025128182429DE0058D92B /* Frameworks */,
@@ -213,9 +213,9 @@
 			dependencies = (
 				B2025131182429DE0058D92B /* PBXTargetDependency */,
 			);
-			name = CCSegmentedControlDemoTests;
+			name = Tests;
 			productName = CCSegmentedControlDemoTests;
-			productReference = B202512B182429DE0058D92B /* CCSegmentedControlDemoTests.xctest */;
+			productReference = B202512B182429DE0058D92B /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -245,8 +245,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B2025109182429DE0058D92B /* CCSegmentedControlDemo */,
-				B202512A182429DE0058D92B /* CCSegmentedControlDemoTests */,
+				B2025109182429DE0058D92B /* Demo */,
+				B202512A182429DE0058D92B /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,7 +299,7 @@
 /* Begin PBXTargetDependency section */
 		B2025131182429DE0058D92B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B2025109182429DE0058D92B /* CCSegmentedControlDemo */;
+			target = B2025109182429DE0058D92B /* Demo */;
 			targetProxy = B2025130182429DE0058D92B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -511,7 +511,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B202513C182429DE0058D92B /* Build configuration list for PBXNativeTarget "CCSegmentedControlDemo" */ = {
+		B202513C182429DE0058D92B /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B202513D182429DE0058D92B /* Debug */,
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B202513F182429DE0058D92B /* Build configuration list for PBXNativeTarget "CCSegmentedControlDemoTests" */ = {
+		B202513F182429DE0058D92B /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B2025140182429DE0058D92B /* Debug */,
