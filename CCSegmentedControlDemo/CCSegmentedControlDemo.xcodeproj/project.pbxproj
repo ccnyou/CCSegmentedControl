@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6F575F52199779A0047C227 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F575F42199779A0047C227 /* LaunchScreen.xib */; };
 		B202510E182429DE0058D92B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B202510D182429DE0058D92B /* Foundation.framework */; };
 		B2025110182429DE0058D92B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B202510F182429DE0058D92B /* CoreGraphics.framework */; };
 		B2025112182429DE0058D92B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2025111182429DE0058D92B /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6F575F42199779A0047C227 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		B202510A182429DE0058D92B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202510D182429DE0058D92B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B202510F182429DE0058D92B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +130,7 @@
 				B2025123182429DE0058D92B /* ViewController.m */,
 				B2025125182429DE0058D92B /* Images.xcassets */,
 				B2025114182429DE0058D92B /* Supporting Files */,
+				A6F575F42199779A0047C227 /* LaunchScreen.xib */,
 			);
 			path = CCSegmentedControlDemo;
 			sourceTree = "<group>";
@@ -227,6 +230,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = ccnyou;
 				TargetAttributes = {
+					B2025109182429DE0058D92B = {
+						DevelopmentTeam = HFXYG2JR7Z;
+						ProvisioningStyle = Manual;
+					};
 					B202512A182429DE0058D92B = {
 						TestTargetID = B2025109182429DE0058D92B;
 					};
@@ -260,6 +267,7 @@
 				B2025126182429DE0058D92B /* Images.xcassets in Resources */,
 				B2025118182429DE0058D92B /* InfoPlist.strings in Resources */,
 				B2025121182429DE0058D92B /* Main.storyboard in Resources */,
+				A6F575F52199779A0047C227 /* LaunchScreen.xib in Resources */,
 				B202514A18242BB00058D92B /* stain@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,11 +442,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = HFXYG2JR7Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CCSegmentedControlDemo/CCSegmentedControlDemo-Prefix.pch";
 				INFOPLIST_FILE = "CCSegmentedControlDemo/CCSegmentedControlDemo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "ccnyou.${PRODUCT_NAME:rfc1034identifier}";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccnyou.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = development;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -448,11 +460,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CCSegmentedControlDemo/CCSegmentedControlDemo-Prefix.pch";
 				INFOPLIST_FILE = "CCSegmentedControlDemo/CCSegmentedControlDemo-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "ccnyou.${PRODUCT_NAME:rfc1034identifier}";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ccnyou.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
