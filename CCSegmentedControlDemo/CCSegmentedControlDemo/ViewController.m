@@ -20,7 +20,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
     CCSegmentedControl* segmentedControl = [[CCSegmentedControl alloc] initWithItems:@[@"本周热门", @"最佳餐厅", @"口味最佳", @"更多排行"]];
-    segmentedControl.frame = CGRectMake(0, 0, 320, 50);
+    segmentedControl.frame = CGRectMake(0, 20, 320, 50);
     
     //设置背景图片，或者设置颜色，或者使用默认白色外观
     segmentedControl.backgroundImage = [UIImage imageNamed:@"segment_bg.png"];
@@ -44,7 +44,7 @@
 - (void)valueChanged:(id)sender
 {
     CCSegmentedControl* segmentedControl = sender;
-    NSLog(@"%s line:%d segment has changed to %d", __FUNCTION__, __LINE__, segmentedControl.selectedSegmentIndex);
+    NSLog(@"%s line:%d segment has changed to %d", __FUNCTION__, __LINE__, (int)segmentedControl.selectedSegmentIndex);
 }
 
 - (UIColor *) colorWithHexString: (NSString *) hexString {

@@ -9,23 +9,25 @@
 #import <UIKit/UIKit.h>
 
 @interface CCSegmentedControl : UIControl<NSCoding>
-
-@property (strong, nonatomic) UIView*     selectedStainView;        //阴影效果
-@property (strong, nonatomic) UIColor*    segmentTextColor;
-@property (strong, nonatomic) UIColor*    selectedSegmentTextColor;
-@property (strong, nonatomic) UIImage*    backgroundImage;
-@property (assign, nonatomic) NSInteger   selectedSegmentIndex;
+@property (strong, nonatomic) UIView *selectedStainView;        //阴影效果
+@property (strong, nonatomic) UIColor *segmentTextColor;
+@property (strong, nonatomic) UIColor *selectedSegmentTextColor;
+@property (strong, nonatomic) UIImage *backgroundImage;
+@property (assign, nonatomic) NSInteger selectedSegmentIndex;
 
 
 - (id)initWithItems:(NSArray *)items;
 
 - (NSString *)titleForSegmentAtIndex:(NSUInteger)segment;
+
 - (void)setTitle:(NSString *)title forSegmentAtIndex:(NSUInteger)segment;
 
 - (void)removeAllSegments;
+
 - (void)removeSegmentAtIndex:(NSUInteger)segment animated:(BOOL)animated;
 
 - (void)appendSegmentWithTitle:(NSString *)title animated:(BOOL)animated;
+
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segmentIndex animated:(BOOL)animated;
 
 @end
