@@ -20,7 +20,7 @@
 #pragma mark - Overrided
 
 + (Class)layerClass {
-    //CAShapeLayer,这个层提供了一个简单的可以使用核心图像路径在层树中组成一个阴影的方法
+    // CAShapeLayer,这个层提供了一个简单的可以使用核心图像路径在层树中组成一个阴影的方法
     return CAShapeLayer.class;
 }
 
@@ -76,9 +76,7 @@
 
     // 重新调整选中 item 的下标
     if (self.selectedSegmentIndex >= index) {
-        if (self.selectedSegmentIndex < self.items.count - 1) {
-            self.selectedSegmentIndex++;
-        }
+        self.selectedSegmentIndex++;
     }
 
     if (animated) {
@@ -91,7 +89,7 @@
     }
 }
 
-- (NSInteger)calcMaxItemWidth {
+- (CGFloat)calcMaxItemWidth {
     CGFloat totalItemWidth = 0;
     if (self.numberOfLines > 1) {
         // 多行，算出每一行，取最长的
@@ -100,7 +98,7 @@
             CGFloat lineItemWidth = 0;
             for (NSInteger j = 0; j < numberOfLineItems; j++) {
                 NSInteger index = i * numberOfLineItems + j;
-                UIView *item = [self.items objectAtIndex:index];
+                UIView *item = [self.items objectAtIndex:(NSUInteger)index];
                 CGFloat itemWidth = CGRectGetWidth(item.bounds);
                 lineItemWidth += itemWidth;
             }
@@ -157,9 +155,9 @@
 
     if (self.selectedSegmentIndex == -1) {
         self.selectedStainView.hidden = NO;
-        [self drawSelectedMaskAtPosition:-1];
+        [self drawSelectedMask];
     } else {
-        UIView *selectedItem = self.items[self.selectedSegmentIndex];
+        UIView *selectedItem = [self.items objectAtIndex:(NSUInteger)self.selectedSegmentIndex];
         CGRect stainFrame = CGRectInset(selectedItem.frame, -10, -8);
         self.selectedStainView.layer.cornerRadius = stainFrame.size.height / 2;
         BOOL animated = !self.selectedStainView.hidden && !CGRectEqualToRect(self.selectedStainView.frame, CGRectZero);
@@ -177,7 +175,7 @@
                                  }
                              }
 
-                             [self drawSelectedMaskAtPosition:selectedItem.center.x];
+                             [self drawSelectedMask];
                          }];
         UIView.animationsEnabled = YES;
     }
@@ -276,7 +274,7 @@
 
 - (void)commonInit {
     _items = [[NSMutableArray alloc] init];
-    _selectedSegmentIndex = 0;
+    _selectedSegmentIndex = -1;
     _numberOfLines = 1;
     _segmentTextColor = [UIColor colorWithRed:0.451 green:0.451 blue:0.451 alpha:1];
     _selectedSegmentTextColor = [UIColor colorWithRed:0.169 green:0.169 blue:0.169 alpha:1];
@@ -297,9 +295,9 @@
     [self addSubview:self.selectedStainView];
 }
 
-//画边框
-- (void)drawSelectedMaskAtPosition:(CGFloat)position {
-    if (self.backgroundImage == nil) {
+// 画边框
+- (void)drawSelectedMask {
+    if (!self.backgroundImage) {
         //没有背景的情况下才需要设置边框
         UIBezierPath *path = UIBezierPath.new;
         CGRect bounds = self.bounds;

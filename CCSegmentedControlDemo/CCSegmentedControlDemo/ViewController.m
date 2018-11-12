@@ -14,14 +14,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
-    
+
     UIScreen *screen = [UIScreen mainScreen];
     CGFloat screenWidth = CGRectGetWidth(screen.bounds);
     NSArray *items = @[@"本周热门", @"最佳餐厅", @"口味最佳", @"更多排行"];
     CCSegmentedControl *segmentedControl = [[CCSegmentedControl alloc] initWithItems:items];
     segmentedControl.frame = CGRectMake(0, 20, screenWidth, 100);
     segmentedControl.numberOfLines = 2;
-    
+
     // 设置背景图片，或者设置颜色，或者使用默认白色外观
     segmentedControl.backgroundImage = [UIImage imageNamed:@"segment_bg"];
     // segmentedControl.backgroundColor = [UIColor grayColor];
@@ -87,8 +87,7 @@
     NSString *fullHex = length == 2 ? substring : [NSString stringWithFormat:@"%@%@", substring, substring];
     unsigned hexComponent;
     [[NSScanner scannerWithString:fullHex] scanHexInt:&hexComponent];
-    return hexComponent / 255.0;
+    return hexComponent / 255.0f;
 }
-
 
 @end
